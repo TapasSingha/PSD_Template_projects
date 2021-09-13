@@ -1,0 +1,539 @@
+/*
+Link to GitHub page: https://github.com/TapasSingha/Systematic_grid_flexbox_layout/blob/main/style.css 
+*/
+/*Link to codepen link https://codepen.io/TapasSingha/pen/jOwNxmx?editors=1100*/
+:root{
+    --main-bg-color:#fff;
+    --accent-color:#ba2e1f;
+
+    --color-light-grey:#f2f2f2;
+    --base-font-size:16px;
+    --main-text-color:#000;
+    --text-color-white:#fff;
+    --color-grey:#9f9f9f;
+    --text-color-dark-grey:#666;
+    --text-color-grey:#878787;
+}
+*{
+    padding:0;
+    margin:0;
+    color:var(--text-color-white);
+    font-family:Georgia, 'Times New Roman', Times, serif;
+}
+img{
+    max-width:100%;
+}
+li{
+    list-style-type:none;
+    display:inline-block;
+    padding-right:8px;
+    margin-right:2px; 
+    position:relative;
+}
+#top-link li::after{
+    /*Give it a width, height and content:"". Then make it position absolute in the context of its parent (li)being position:relative. Now it should render on screen. 
+    */
+    content:"";
+    position:absolute;
+    background-color:var(--main-bg-color);
+    width:2px;
+    height:12px;
+    /*About the alignment, I measured the distance between each li in the design (10px), and divided it into padding-right (8px) and margin-right (2px) and gave them to the li above. Then placed the bars to the far-right by making the li::after right:0. Now the bars are almost perfectly centered between each li's. */
+    top:3px;
+    right:0;
+}
+/*Made the last vertical bar disappear with the following code*/
+li:last-of-type::after{
+    display:none;
+}
+a{
+    text-decoration:none;
+    display:block;
+}   
+
+.wrapper{
+    max-width:1040px;
+    margin-right:auto;
+    margin-left:auto;
+}
+.top-head{
+    background-color:var(--accent-color);
+    min-height:51px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+}
+#search{
+    min-width:210px;
+    min-height:25px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    background-color:var(--main-bg-color);
+    border-radius:25px;
+}
+#search form{
+    display:flex;
+    align-items:center;
+}
+
+#search form *{
+    border:none;
+}
+/*_________________________________________________
+Instruction: 
+    Increase the gap between the search-text and the top and bottom celing of search form
+
+Status: Completed by assigning height and using flexbox.
+___________________________________________________*/
+
+#search input[type="text"]{  
+    border-radius:25px;
+    height:18px; 
+    width:182px;
+    margin-right:3px;
+}
+#search input[type="submit"]{
+    background:url(images/search.png) no-repeat;
+    width:18px;
+    height:18px;
+    cursor:pointer;
+}
+
+/*Mid-head*/
+.mid-head{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    min-height:135px;
+}
+
+#social li{
+    background-color:#333;
+    width:15px;
+    height:15px;
+    /*Assigned fixed width and height so as to give them unifrom size*/
+    border-radius:50%;
+    padding:7px;
+    /*Added padding to get the desired width and height*/
+    margin-left:5px;
+    /*There was some margin already at work so giving it 10px margin would have made it bigger*/
+}
+/*=============HOVER EFFECT===========*/
+#social li.lin:hover{
+    background:#017480;
+    border-radius:50%;
+}
+#social li.twit:hover{
+    background:#41B7E5;
+}
+#social li.gplus:hover{
+    background:#D64134;
+}
+#social li.pint:hover{
+    background:#DE2A32;
+}
+#social li.rss:hover{
+    background:#EE802F;
+}
+
+.bot-head{
+    min-height:2.5rem; /*2.5rem or 40px*/
+    width:100%;
+    background-color:#333;
+    position:relative;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    flex-wrap:wrap;
+    position:sticky;
+    top:0;
+}
+.bot-head:after{
+    content:"";
+    width:inherit;
+    min-height:50%; /*1.1875rem or 19px*/
+    position:absolute;
+    /*Without width and height it cannot be rendered as it has no content. Width, height, content, and position:absolute are necessary to display content like this.*/
+    left:0;
+    background-color:#2b2b2b;
+    align-self:flex-end;
+}
+.bot-head ul{
+    z-index:1;
+    /*Without z-index, the bottom part override the ul*/
+    gap:12px
+}
+/*.bot-head ul{
+    z-index:1;
+    display:grid;
+    grid-template-columns: repeat(8, 1fr); comment-How do I make the grid responsive?
+    place-items:center;    
+    column-gap:12px
+}*/
+.bot-head a:hover{
+    color:var(--accent-color);
+}
+/*==============HERO SECTION================*/
+.hero{
+    display:grid;
+    grid-template-columns:1fr 2rem 1.3fr;
+    grid-template-areas:
+    "hero-img . hero-text";
+}
+.hero-img{
+    grid-area:hero-img;  
+    justify-self:start;
+}
+.hero-text{
+    grid-area:hero-text;
+}
+.hero *{
+    color:black;
+    text-align:left;
+}
+.hero-text{
+    display:grid;
+    grid-template-columns:1fr;
+    grid-template-rows:2fr 4fr 2fr 1fr;
+    grid-template-areas:
+    "."
+    "h1"
+    "p"
+    "a";
+    position:relative;
+}
+.hero-img{
+    text-align:center;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+}
+.hero-text h1{
+    font-size:86px;
+    font-weight:200;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    grid-area:h1;
+}
+.hero-text p{
+    grid-area:p;
+    line-height:24px;
+    color:#666;
+}
+.hero-text a{
+    grid-area:a;
+    text-transform:uppercase;
+}
+.read-more-link{
+    color:var(--accent-color);
+    text-transform:capitalize;
+    /*Made position absolute so that they do not break. Find the version without position absolute here https://github.com/TapasSingha/Systematic_grid_flexbox_layout/tree/4b2954f5bd00b08800e417e0bba041b8d8213c0c*/
+    position:absolute;
+    bottom:0;
+    right:0;
+}
+.hero .read-more-link{
+    margin-right:1rem
+}
+.hero-text a:after{
+    content:"»";
+    position:absolute;
+}
+@media screen and (max-width:800px){
+    .hero{
+        display:grid;
+        grid-template-columns:1fr;
+        grid-template-rows: repeat(2, 1rem 1fr);
+        grid-template-areas:
+        "."
+        "hero-img"
+        "."
+        "hero-child";
+    }
+    .hero p, .hero h1{
+        text-align:center;
+    }
+}
+/*================SERVICES=====================*/
+.services{
+    display:flex;
+    flex-wrap:wrap;
+   
+}
+.service-child{
+    padding:5px;
+    background-color:var(--main-bg-color);
+    position:relative;
+    display:flex;
+    flex-direction:column;
+    min-height:580px;
+    background-color:#f2f2f2;
+    color:blue;
+}
+.service-child h2{
+    color:#333;
+    padding: 3rem 0;
+}
+.service-child p{
+    color:#878787;
+    margin-top:26px;
+}
+.service-child *{
+    text-align:left;
+}
+.service-child a{
+    text-align: end;
+    /*margin-top:26px;
+    It is causing override on link in the third service*/
+}
+.services > *{
+    flex:1 1 100%;
+    flex-basis:18.75rem; /*or 300px. To be exact- 346.66px or 21.66rem*/
+}
+
+.service-block{
+    display:flex;
+    flex-direction:row;
+    margin-bottom:2rem;
+}
+
+.service-block img{
+    width:4rem;
+    height:4rem;
+}
+.service-block p{
+    margin:0 10px 5px;
+}
+.service-text{
+    display:flex;
+    flex-direction:column;
+}
+.service-name{
+    font-weight:600; 
+}
+
+/* What is its function?
+.curve-svg{
+    background-color: inherit;
+    position: absolute;
+    left: 680px;
+    top: 811px;
+    width: 53px;
+    height: 44px;
+    z-index: 64;
+  }*/
+
+.testimony-head{
+    display:flex;
+    flex-direction:row;
+}
+
+.testimony-name{
+    display:flex;
+    justify-items:center;
+    align-items:center;
+}
+.testimony-name p{
+    margin:0;
+    font-weight:600;
+    /*I used so much time trying to center the text inside testimony-name using flexbox, but the p had an inherited margin so it was not centering at all*/
+}
+.testimony-name .testimonial-designation{
+    color:inherit;
+    font-weight:100;
+}
+.testimony-block{
+    margin-bottom:1.4rem;
+}
+.testimony-block:last-of-type{
+    margin-bottom:initial;
+}
+
+.bottom *{
+    color:black;
+}
+.bottom{
+    display:flex;
+    flex-direction:row;
+    flex-wrap:wrap;   
+}
+.bottom > *{
+    flex:1 1 100%;
+    flex-basis:14.3rem; /*15.625rem or 250px, 260px or 16.5rem;*/
+}
+.bottom *{
+    text-align:left;
+}
+.bottom-child{
+    border-top:1px solid #666;
+    margin-top:3.1rem;
+}
+.bottom-child > *{
+    margin: 0 0.5rem;
+}
+.bottom-child h3{
+    font-size:1rem;
+    text-transform:uppercase;
+    color:#666;
+    margin-top:1.2rem;
+    margin-bottom:2rem;
+    text-align:left;
+}
+.tweet-block p:first-of-type {
+    margin-bottom:0.5rem;
+}
+.user-name{
+    color:var(--accent-color);
+}
+.tweet-block{
+    margin-bottom:1.5rem;
+}
+
+.quick-link ul{
+    /*https://www.456bereastreet.com/archive/201105/styling_ordered_list_numbers/*/
+    margin-left:0; 
+	padding-left:0;
+}
+.quick-link ul > li{
+    position:relative;
+	margin:0 0 6px 1em; /* Necessary | Give each list item a left margin to make room for the numbers */
+    padding:4px 8px;
+    color:#666;
+	border-bottom:1px solid #d4d4d4;
+
+    display:block; /*Otherwise they were breaking and flexing*/
+}
+.quick-link ul > li:before{
+    content:"»";
+    color:var(--accent-color); /*It looks better than #666 which is in the design*/
+    position:absolute;
+    left:0;
+
+	position:absolute;
+	top:-2px;
+	left:-1rem; /*Necessary*/
+	-moz-box-sizing:border-box;
+	-webkit-box-sizing:border-box;
+	box-sizing:border-box;  
+	width:1em;
+    
+	/* Some space between the number and the content in browsers that support
+	   generated content but not positioning it (Camino 2 is one example) */
+	margin-right:8px;
+	padding:4px;
+    
+	font-weight:bold;
+	font-family:"Helvetica Neue", Arial, sans-serif;
+	text-align:left;
+}
+
+/*FIX THESE PROBLEMS.
+MAKE THE LINKS IN FIRST AND SECOND SERVICE-SECTION ALIGNED */
+
+.p-a-link{
+    /*background-color:red;*/    
+    height:64px;
+    display:flex;
+    flex-direction:row;
+    align-items:center;
+    justify-content:flex-end;
+    
+}
+.p-a-link a{
+    /*background-color:blue;*/
+    position:unset;
+}
+
+.service-block:last-of-type{
+    margin:0;
+}
+/*.service-child:nth-of-type(1) .read-more-link, .service-child:nth-of-type(2) .read-more-link{    
+}*/
+.p-a-link{
+    position:absolute;
+    bottom:0;
+    right:1em;
+}
+
+/*30th August 2021*/
+.bottom *{
+    color:var(--text-color-dark-grey);
+}
+.bottom-child{
+    margin-bottom:3rem;
+    margin-right:1.3rem;
+}
+.bottom-child:last-of-type{
+    margin-right:none;
+}
+.bottom-child h3{
+    font-size:1.03rem;
+    letter-spacing: 0.06rem;
+    font-weight:500;
+}
+.post-title{
+    font-weight:900;
+    font-size:1.16rem;
+}
+.post-author-details{
+    font-size:0.83rem;
+}
+.post{
+    margin-bottom:1rem;
+}
+.post:last-of-type{
+    margin-bottom:initial;
+}
+.accent-color{
+    color:var(--accent-color);
+}
+.post-text{
+    margin-top:1.3rem;
+    margin-bottom:1.2rem;
+}
+.read-more-link{
+    color:var(--accent-color);
+}
+.read-more-link:after{
+    content:"»";
+    color:var(--accent-color); /*It looks better than #666 which is in the design*/
+    position:absolute;
+}
+.contact-form input{
+    background-color:var(--color-light-grey);
+    border:none;
+    min-width:95%;
+    padding:0.5em;
+    margin-bottom:1rem;
+    border-radius:0.2em;
+}
+textarea{
+    background-color:var(--color-light-grey);
+    border:none;
+    resize:none; /*To remove the resize handle*/
+    outline:none; /*To remove the blue glow*/
+    min-width:95%;
+    min-height:10rem;
+    margin-bottom:1rem;
+    padding:5px;
+    border-radius:0.2em;
+}
+input[type="submit"]{
+    min-width:initial;
+    padding:0.5em 1em;
+    color:var(--accent-color);
+    text-transform:uppercase;
+    cursor:pointer;
+}
+
+footer *{
+    color:var(--color-grey);
+}
+footer{
+    background-color:var(--color-light-grey);
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    min-height:4rem;
+}
