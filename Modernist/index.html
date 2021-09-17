@@ -6,17 +6,24 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Modernist Template Recreation</title>
     <style>
+        /*COMMON/UNIVERSAL*/
         body{
             color:white;
-            background-color:black;
+            background-color:pink;
+            max-width:1200px;
+            margin:5rem auto;
+            box-sizing:border-box;
+            border-top:5px solid #76c38f;
         }
+        img{
+            max-width:100%;
+        }
+        /*PRIMARY*/
         header{
-            height:90px;
-            border-top:1px solid #76c38f;
-            background-color:#290000;
+            min-height:90px;
         }
         main{
-            height:500px;
+            min-height:500px;
             background-color:#660000;
             border-bottom:1px solid #000;
         }
@@ -27,11 +34,96 @@
             justify-content:space-between;
             border-top:1px solid #3a3a3a;
         }
+
+        /*SECONDARY*/
+        #hero{
+            min-height:520px;
+        }
+        #service{
+            min-height:430px;
+        }
+        #latest-work{
+            min-height:542px;
+        }
+        #btm-nav{
+            min-height:390px;
+        }
+        /**/
+        .container{
+            max-width:960px;
+            margin:0 auto;
+        }
+        .dark-maroon{
+            background-color:#290000;            
+        }
+        .maroon{
+            background-color: #660000;
+        }
+        .grey{
+            background-color: #303030;
+        }
+
+
+        
+        .image-board{
+            border:5px solid white;
+            width:300px;
+            min-height:200px;
+            margin-left:2rem;
+            position:relative;
+        }
+        .image-board:hover{
+            cursor:pointer;
+            border-color: #76c38f;
+        }
+        .image-board:hover .overlay-text{
+            display:none;
+            cursor:pointer;
+        }
+
+        
+        .image-board .overlay-text{
+            background-color: #151515;
+            min-height:30px;
+            position:absolute;
+            width:100%;
+            bottom:0;
+            display:flex;
+            align-items:center;
+            justify-content:center;
+        }
+        .image-board .overlay-text p{
+            margin:0;
+        }
     </style>
 </head>
 <body>
-    <header></header>
-    <main></main>
+    <header class="dark-maroon"> 
+
+    </header>
+    <main>
+        <section id="hero" class="dark-maroon">
+            <!--<h1>Cursus penati saccum nulla.</h1>
+            <p>Nullamlacus dui ipsum conseque loborttis non euisque morbi penas dapibulum orna. Urnaultrices quis curabitur phasellentesque congue magnis vestibulum quismodo nulla et feugiat adipiscinia pellentum leo.</p>-->
+            
+        </section>
+        <section id="service" class="maroon">
+
+        </section>
+
+        <section id="latest-work" class="maroon">
+            <div class="image-board">
+                <img src="img/Uncut/history_2.jpg" alt="earth from space">
+                <div class="overlay-text">
+                    <p>LOREM IPSUM DOLOR</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="btm-nav" class="grey">
+
+        </section>
+    </main>
     <footer>
         <p>Copyright&copy; 2013 Domain Name - All Rights Reserved</p>
         <p>Template by OS Templates</p>
