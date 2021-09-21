@@ -10,8 +10,8 @@
         GitHub page- https://github.com/TapasSingha/PSD_Template_projects/tree/main/Modernist
 
         CodePen link- https://codepen.io/TapasSingha/pen/eYRyXoP?editors=1100
-
         */
+
         /*COMMON/UNIVERSAL*/
         
         body{
@@ -19,7 +19,7 @@
             background-color:white;
             color:white;
             max-width:960px;
-            /*I hadmade a huge problem out of this. Since I had used width instead of max-width, the width of the latest-work section as well as the others always stayed at this width size. So it had scrollbar and the image-board content didn't pour into next lines as it had extra space to the right side.*/
+            
             margin:0 auto;
             box-sizing:border-box;
             border-top:5px solid #76c38f;
@@ -30,6 +30,7 @@
         img{
             max-width:100%;
         }
+        
         /*PRIMARY*/
         header{
             min-height:90px;
@@ -59,10 +60,22 @@
             text-align: center;
             position:relative;
         }
+        @media all and (max-width:900px){
+            #latest-work{
+                padding-bottom:4rem;
+            }
+        }
+        @media all and (max-width:600px){
+            #latest-work{
+                flex-direction:column;
+                justify-content:flex-start;
+                
+            }
+        }
         #latest-work > h2{
             background-color:#303030;
             display:inline-block;
-            position:absolute;
+            position:relative;
             top:-50px;
             width:256px;
             font-size:32px;
@@ -86,15 +99,16 @@
             background-color: #303030;
         }
 
-
-        
         
         #boards{
+            margin-top:-2rem;
             display:flex;
             flex-wrap:wrap;
             gap:1rem;
-            justify-content:space-around;
+            justify-content:space-evenly;
+            align-content:flex-start;
         }
+        
         #boards .image-board-content{
             position:relative;
             height:190px;
