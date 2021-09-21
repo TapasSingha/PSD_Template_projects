@@ -6,15 +6,27 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Modernist Template Recreation</title>
     <style>
+        /*
+        GitHub page- https://github.com/TapasSingha/PSD_Template_projects/tree/main/Modernist
+
+        CodePen link- https://codepen.io/TapasSingha/pen/eYRyXoP?editors=1100
+
+        */
         /*COMMON/UNIVERSAL*/
+        
         body{
+            
+            background-color:white;
             color:white;
-            background-color:pink;
-            max-width:1200px;
-            margin:5rem auto;
+            max-width:960px;
+            /*I hadmade a huge problem out of this. Since I had used width instead of max-width, the width of the latest-work section as well as the others always stayed at this width size. So it had scrollbar and the image-board content didn't pour into next lines as it had extra space to the right side.*/
+            margin:0 auto;
             box-sizing:border-box;
             border-top:5px solid #76c38f;
+
+            font-family:Georgia, 'Times New Roman', Times, serif;
         }
+        
         img{
             max-width:100%;
         }
@@ -24,7 +36,6 @@
         }
         main{
             min-height:500px;
-            background-color:#660000;
             border-bottom:1px solid #000;
         }
         footer{
@@ -44,15 +55,27 @@
         }
         #latest-work{
             min-height:542px;
+            border-top:5px solid #303030;
+            text-align: center;
+            position:relative;
         }
+        #latest-work > h2{
+            background-color:#303030;
+            display:inline-block;
+            position:absolute;
+            top:-50px;
+            width:256px;
+            font-size:32px;
+            font-weight:normal;
+            text-transform:uppercase;
+            border-radius:10px;
+        }
+        
         #btm-nav{
             min-height:390px;
         }
         /**/
-        .container{
-            max-width:960px;
-            margin:0 auto;
-        }
+        
         .dark-maroon{
             background-color:#290000;            
         }
@@ -65,36 +88,50 @@
 
 
         
-        .image-board{
-            border:5px solid white;
-            width:300px;
-            min-height:200px;
-            margin-left:2rem;
-            position:relative;
-        }
-        .image-board:hover{
-            cursor:pointer;
-            border-color: #76c38f;
-        }
-        .image-board:hover .overlay-text{
-            display:none;
-            cursor:pointer;
-        }
-
         
-        .image-board .overlay-text{
-            background-color: #151515;
-            min-height:30px;
-            position:absolute;
+        #boards{
+            display:flex;
+            flex-wrap:wrap;
+            gap:1rem;
+            justify-content:space-around;
+        }
+        #boards .image-board-content{
+            position:relative;
+            height:190px;
+            flex-basis:290px;
+            border:5px solid white;
+        }
+        .image-board-content img{
+            height:100%;
             width:100%;
+        }
+        
+        .overlay-text{
+            color:white;
+            background-color: #151515;
+            width:100%;
+            position:absolute;
             bottom:0;
             display:flex;
             align-items:center;
-            justify-content:center;
+            justify-content:center;           
         }
-        .image-board .overlay-text p{
+        .overlay-text p{
             margin:0;
         }
+        .image-board-content:hover, 
+        .image-board-content:focus, 
+        .image-board-content:active {
+            cursor:pointer;
+            border-color:#76c38f;
+        }
+        
+        .image-board-content:hover .overlay-text, 
+        .image-board-content:focus .overlay-text, 
+        .image-board-content:active .overlay-text{
+            display:none;
+        } 
+        
     </style>
 </head>
 <body>
@@ -112,10 +149,43 @@
         </section>
 
         <section id="latest-work" class="maroon">
-            <div class="image-board">
-                <img src="img/Uncut/history_2.jpg" alt="earth from space">
-                <div class="overlay-text">
-                    <p>LOREM IPSUM DOLOR</p>
+            <h2>Latest work</h2>
+            <div id="boards">
+                <div class="image-board-content">
+                    <img src="img/Uncut/history_2.jpg" alt="earth from space">
+                    <div class="overlay-text">
+                        <p>LOREM IPSUM DOLOR</p>
+                    </div>
+                </div>
+                <div class="image-board-content">
+                    <img src="img/Uncut/history_2.jpg" alt="earth from space">
+                    <div class="overlay-text">
+                        <p>LOREM IPSUM DOLOR</p>
+                    </div>
+                </div>
+                <div class="image-board-content">
+                    <img src="img/Uncut/history_2.jpg" alt="earth from space">
+                    <div class="overlay-text">
+                        <p>LOREM IPSUM DOLOR</p>
+                    </div>
+                </div>
+                <div class="image-board-content">
+                    <img src="img/Uncut/history_2.jpg" alt="earth from space">
+                    <div class="overlay-text">
+                        <p>LOREM IPSUM DOLOR</p>
+                    </div>
+                </div>
+                <div class="image-board-content">
+                    <img src="img/Uncut/history_2.jpg" alt="earth from space">
+                    <div class="overlay-text">
+                        <p>LOREM IPSUM DOLOR</p>
+                    </div>
+                </div>
+                <div class="image-board-content">
+                    <img src="img/Uncut/history_2.jpg" alt="earth from space">
+                    <div class="overlay-text">
+                        <p>LOREM IPSUM DOLOR</p>
+                    </div>
                 </div>
             </div>
         </section>
@@ -124,7 +194,7 @@
 
         </section>
     </main>
-    <footer>
+    <footer">
         <p>Copyright&copy; 2013 Domain Name - All Rights Reserved</p>
         <p>Template by OS Templates</p>
     </footer>
